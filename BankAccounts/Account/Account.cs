@@ -1,6 +1,6 @@
 ﻿namespace BankAccounts;
 
- public class Account
+ public abstract class Account
 {
     public Account(string name, string lastname)
     {

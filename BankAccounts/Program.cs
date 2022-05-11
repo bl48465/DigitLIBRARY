@@ -10,20 +10,27 @@ namespace BankAccounts;
 {
     static void Main(string[] args)
     {
-        var account = new Account("Filan", "Fisteku");
-       
+        //var savingAccount = new SavingsAccount("Filan", "Fisteku");
+        //var salaryAccount = new SalaryAccount("Bajram", "Latifaj");
 
-        Transaction trs = Transaction.DepositMoney(account,500);
-        Transaction trs2 = Transaction.WithdrawMoney(account,200);
+        //AS LONG AS TRANSACTION IS STATIC YOU CANNOT HAVE THE SAME TRANSACTION ID TWICE
+
+        //Transaction trs = Transaction.DepositMoney(savingAccount, 500,"Savings");
+        //Transaction trs1 = Transaction.DepositMoney(savingAccount, 232, "Savings");
+        //Transaction trs2= Transaction.DepositMoney(savingAccount, 520, "Savings");
+
+        //Transaction trs3 = Transaction.DepositMoney(salaryAccount, 380, "Salary");
+        //Transaction trs4 = Transaction.DepositMoney(salaryAccount, 380, "Salary");
+        //Transaction trs5 = Transaction.DepositMoney(salaryAccount, 380, "Salary");
 
 
-        Console.WriteLine(trs.ToString());
-        Console.WriteLine(trs2.ToString());
+        //Console.WriteLine(trs.ToString());
 
-        Console.WriteLine(account.GetCurrentBalance());
 
-        Transaction.DepositMoney(account,200);
-        Console.WriteLine("Balance after last transaction " + account.GetCurrentBalance());
+        //Console.WriteLine(savingAccount.GetCurrentBalance());
+
+        //Transaction.DepositMoney(savingAccount,200,"Savings");
+        //Console.WriteLine("Balance after last transaction " + savingAccount.GetCurrentBalance());
 
 
 

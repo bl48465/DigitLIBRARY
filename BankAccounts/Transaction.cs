@@ -4,12 +4,15 @@ public class Transaction
 {
     public string Id { get; set; }
     public double Amount { get; }
+    public string Note { get; set; }
     public DateTime CreatedAt { get; }
+    public string UserId { get; set; }
 
-    public Transaction(double amount)
+    public Transaction(double amount,string note)
     {
         this.Id = Guid.NewGuid().ToString();
         this.Amount = amount;
+        this.Note = note;
         this.CreatedAt = DateTime.Now;
     }
 
@@ -39,24 +42,24 @@ public class Transaction
         return new SuccessResult($"You have deposited {amount} $ succesfully!", 200);
     }
 
-    public static Transaction DepositMoney(Account account, double amount)
+    public static Transaction DepositMoney(Account account, double amount,string note)
     {
         if (DepositMoneyValidator(amount) is SuccessResult)
         {
             account.Deposit(amount);
-            return new Transaction(amount);
+            return new Transaction(amount, note) { UserId = account.Id };
         }
         else
         {
             throw new Exception("Something went wrong!");
         }
     }
-    public static Transaction WithdrawMoney(Account account,double amount)
+    public static Transaction WithdrawMoney(Account account,double amount,string note)
     {
         if (WithdrawValidator(account,amount) is SuccessResult)
         {
             account.Withdraw(amount);
-            return new Transaction(amount);
+            return new Transaction(amount, note) { UserId = account.Id };
         }
         else
         {
